@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="str_loop">Smyčka</string>
-    <string name="app_name">LibreCuts</string>
+    <string name="app_name">CapiCut</string>
     <string name="trim">Zkrátit</string>
     <string name="split">Rozdělit</string>
     <string name="export">Exportovat</string>

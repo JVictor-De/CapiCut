@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="str_loop">循环</string>
-    <string name="app_name">自由剪辑</string>
+    <string name="app_name">CapiCut</string>
     <string name="trim">修剪</string>
     <string name="split">分割</string>
     <string name="export">导出</string>

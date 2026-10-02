@@ -1024,8 +1024,17 @@ class VideoEditingViewModel : ViewModel() {
                 }
 
                 val isClipMuted = operations.filterIsInstance<EditOperation.MuteClip>().find { it.index == i }?.isMuted ?: false
+                val mergeOp = operations.filterIsInstance<EditOperation.Merge>().firstOrNull()
+                val clipOffsetOp = operations.filterIsInstance<EditOperation.ClipAudioOffset>().find { it.clipIndex == i }
+                val offsetMs = clipOffsetOp?.offsetMs
+                    ?: if (i == 0) 0L else (mergeOp?.items?.getOrNull(i - 1)?.audioOffsetMs ?: 0L)
                 if (hasAudioArray[i] && !isClipMuted) {
-                    filterParts.add("[$i:a]asetpts=PTS-STARTPTS,aformat=sample_rates=44100:channel_layouts=stereo[anorm$i]")
+                    val delayPart = when {
+                        offsetMs > 0 -> ",adelay=$offsetMs|$offsetMs"
+                        offsetMs < 0 -> ",atrim=start=${(-offsetMs) / 1000.0},asetpts=PTS-STARTPTS"
+                        else -> ""
+                    }
+                    filterParts.add("[$i:a]asetpts=PTS-STARTPTS${delayPart},aformat=sample_rates=44100:channel_layouts=stereo[anorm$i]")
                 } else {
                     val d = durationsArray[i]
                     filterParts.add("anullsrc=r=44100:cl=stereo,atrim=duration=$d,asetpts=PTS-STARTPTS[anorm$i]")

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="str_loop">Loop</string>
-    <string name="app_name">LibreCuts</string>
+    <string name="app_name">CapiCut</string>
     <string name="trim">Cortar</string>
     <string name="split">Dividir</string>
     <string name="export">Exportar</string>
@@ -152,4 +152,42 @@
     <string name="str_haptic_disabled_desc">Desabilitado (Vibrações desligadas no app)</string>
     <string name="str_default_music_librecuts">Padrão (Music/LibreCuts)</string>
     <string name="str_default_pictures_librecuts">Padrão (Pictures/LibreCuts)</string>
+
+    <!-- CapiCut -->
+    <string name="capicut_recent_projects">Projetos recentes</string>
+    <string name="capicut_no_local_projects">Os projetos salvos automaticamente aparecem aqui.</string>
+    <string name="capicut_missing_media">Mídia original não encontrada</string>
+    <string name="capicut_rename">Renomear</string>
+    <string name="capicut_delete">Excluir</string>
+    <string name="capicut_rename_title">Renomear projeto</string>
+    <string name="capicut_improve_audio">Melhorar áudio</string>
+    <string name="capicut_auto_cut">Corte auto</string>
+    <string name="capicut_transcribe">Transcrever</string>
+    <string name="capicut_auto_video">Tratar vídeo</string>
+    <string name="capicut_export_wav">Exportar WAV</string>
+    <string name="capicut_processing">Processando…</string>
+    <string name="capicut_no_video">Carregue um vídeo primeiro</string>
+    <string name="capicut_clipping_warning">O áudio original está em clipping. A faixa tratada mesmo assim foi aplicada.</string>
+    <string name="capicut_audio_applied">Áudio tratado aplicado</string>
+    <string name="capicut_no_speech">Nenhuma fala detectada</string>
+    <string name="capicut_auto_cut_applied">Silêncios removidos</string>
+    <string name="capicut_whisper_missing">O modelo Whisper ainda não foi baixado. A transcrição continua local quando o modelo estiver em ModelStore.</string>
+    <string name="capicut_video_applied">Corte 9:16 e exposição aplicados</string>
+    <string name="capicut_wav_saved">WAV salvo em Música/CapiCut</string>
+    <string name="capicut_about_credit">O CapiCut é baseado no LibreCuts (MIT). Trabalho original de Tharun Birla.</string>
+    <string name="capicut_busy">Já existe um processamento em andamento</string>
+    <string name="capicut_cancelled">Cancelado</string>
+    <string name="capicut_storage_full">Armazenamento insuficiente</string>
+    <string name="capicut_audio_failed">Falha ao tratar o áudio</string>
+    <string name="capicut_vad_failed">Falha no corte automático</string>
+    <string name="capicut_wav_failed">Falha ao exportar WAV</string>
+    <string name="capicut_unknown_job">Tipo de tarefa desconhecido</string>
+    <string name="capicut_unknown_error">Algo deu errado</string>
+    <string name="capicut_transcript_ready">Transcrição pronta</string>
+    <string name="capicut_notifications_denied">Notificações desativadas — volte ao app para ver o progresso.</string>
+    <string name="capicut_auto_cut_review">%1$d trechos de fala encontrados. Aplicar cortes e remover silêncios?</string>
+    <string name="capicut_fillers_title">Muletas de linguagem</string>
+    <string name="capicut_fillers_found">Encontradas %1$d muletas. Remover da timeline?</string>
+    <string name="capicut_fillers_remove">Remover</string>
+    <string name="capicut_fillers_removed">Cortes de muletas aplicados</string>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="str_loop">تكرار</string>
-    <string name="app_name">LibreCuts</string>
+    <string name="app_name">CapiCut</string>
     <string name="trim">قص</string>
     <string name="split">تقسيم</string>
     <string name="export">تصدير</string>

@@ -434,3 +434,13 @@ fun VideoEditingViewModel.setScrubProxyUri(dependencyId: String, proxyUri: Uri) 
         }
     })
 }
+
+/** CapiCut: set A/V sync offset for a clip (milliseconds). Positive delays audio. */
+fun VideoEditingViewModel.setClipAudioOffset(clipIndex: Int, offsetMs: Long) {
+    executeCommand(
+        ReplaceUniqueOperationCommand(
+            EditOperation.ClipAudioOffset(clipIndex = clipIndex, offsetMs = offsetMs),
+            "Audio Sync Offset"
+        )
+    )
+}

@@ -130,6 +130,17 @@
             </LinearLayout>
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tvCapicutProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp"
+            android:textColor="@color/onPrimaryContainer"
+            android:background="@color/colorPrimary"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
         <!-- Video Player Frame Container -->
         <FrameLayout
             android:id="@+id/playerContainer"
@@ -739,6 +750,131 @@
                         android:layout_marginTop="4dp"
                         android:text="@string/str_audio"
                         android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/toolTextInactive"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <ImageButton
+                        android:id="@+id/btnCapicutImproveAudio"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/tool_button_inactive"
+                        android:src="@drawable/ic_audio_24"
+                        android:padding="8dp"
+                        android:scaleType="fitCenter"
+                        app:tint="@color/toolTextInactive" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/capicut_improve_audio"
+                        android:textSize="9sp"
+                        android:gravity="center"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/toolTextInactive"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <ImageButton
+                        android:id="@+id/btnCapicutAutoCut"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/tool_button_inactive"
+                        android:src="@drawable/ic_trim_24"
+                        android:padding="8dp"
+                        android:scaleType="fitCenter"
+                        app:tint="@color/toolTextInactive" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/capicut_auto_cut"
+                        android:textSize="9sp"
+                        android:gravity="center"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/toolTextInactive"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <ImageButton
+                        android:id="@+id/btnCapicutTranscribe"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/tool_button_inactive"
+                        android:src="@drawable/ic_subtitles_24"
+                        android:padding="8dp"
+                        android:scaleType="fitCenter"
+                        app:tint="@color/toolTextInactive" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/capicut_transcribe"
+                        android:textSize="9sp"
+                        android:gravity="center"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/toolTextInactive"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <ImageButton
+                        android:id="@+id/btnCapicutAutoVideo"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/tool_button_inactive"
+                        android:src="@drawable/ic_crop_24"
+                        android:padding="8dp"
+                        android:scaleType="fitCenter"
+                        app:tint="@color/toolTextInactive" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/capicut_auto_video"
+                        android:textSize="9sp"
+                        android:gravity="center"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/toolTextInactive"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <ImageButton
+                        android:id="@+id/btnCapicutExportWav"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/tool_button_inactive"
+                        android:src="@drawable/ic_audio_extract_24"
+                        android:padding="8dp"
+                        android:scaleType="fitCenter"
+                        app:tint="@color/toolTextInactive" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/capicut_export_wav"
+                        android:textSize="9sp"
+                        android:gravity="center"
                         android:fontFamily="sans-serif-medium"
                         android:textColor="@color/toolTextInactive"/>
                 </LinearLayout>

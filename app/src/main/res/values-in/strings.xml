@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="str_loop">Ulangi</string>
-    <string name="app_name">LibreCuts</string>
+    <string name="app_name">CapiCut</string>
     <string name="trim">Potong</string>
     <string name="split">Pisah</string>
     <string name="export">Ekspor</string>

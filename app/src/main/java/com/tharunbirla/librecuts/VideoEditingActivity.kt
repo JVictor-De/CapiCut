@@ -157,6 +157,7 @@ class VideoEditingActivity : AppCompatActivity() {
 
     // ViewModel and Services
     private lateinit var viewModel: VideoEditingViewModel
+    private var capicutHooks: com.capicut.audiointel.ui.CapicutEditorHooks? = null
     private lateinit var ffmpegEngine: FFmpegRenderEngine
 
     // State
@@ -601,6 +602,11 @@ class VideoEditingActivity : AppCompatActivity() {
         setupCustomSeeker()
         setupHandwritingControls()
         observeViewModelState()
+        capicutHooks = com.capicut.audiointel.ui.CapicutEditorHooks(
+            this,
+            viewModel,
+            findViewById(android.R.id.content)
+        ).also { it.onCreate() }
 
         // Play/Pause button logic
         btnPlayPause.setBounceClickListener {
@@ -7656,6 +7662,7 @@ class VideoEditingActivity : AppCompatActivity() {
             player.release()
         }
         ffmpegEngine.cleanup()
+        capicutHooks?.onDestroy()
     }
 
     private val colorsList = listOf(

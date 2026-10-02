@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="str_loop">Loop</string>
-    <string name="app_name">LibreCuts</string>
+    <string name="app_name">CapiCut</string>
     <string name="trim">Trim</string>
     <string name="split">Split</string>
     <string name="export">Export</string>
@@ -176,4 +176,42 @@
     <string name="str_haptic_feedback">Haptic Feedback</string>
     <string name="str_haptic_enabled_desc">Enabled (In-app vibrations active)</string>
     <string name="str_haptic_disabled_desc">Disabled (In-app vibrations muted)</string>
+
+    <!-- CapiCut -->
+    <string name="capicut_recent_projects">Recent projects</string>
+    <string name="capicut_no_local_projects">Autosaved projects will appear here.</string>
+    <string name="capicut_missing_media">Original media not found</string>
+    <string name="capicut_rename">Rename</string>
+    <string name="capicut_delete">Delete</string>
+    <string name="capicut_rename_title">Rename project</string>
+    <string name="capicut_improve_audio">Improve audio</string>
+    <string name="capicut_auto_cut">Auto cut</string>
+    <string name="capicut_transcribe">Transcribe</string>
+    <string name="capicut_auto_video">Auto treat</string>
+    <string name="capicut_export_wav">Export WAV</string>
+    <string name="capicut_processing">Processing…</string>
+    <string name="capicut_no_video">Load a video first</string>
+    <string name="capicut_clipping_warning">Original audio is clipping. Treated track was still applied.</string>
+    <string name="capicut_audio_applied">Treated audio applied</string>
+    <string name="capicut_no_speech">No speech detected</string>
+    <string name="capicut_auto_cut_applied">Silence gaps removed</string>
+    <string name="capicut_whisper_missing">Whisper model is not downloaded yet. Transcription stays local when the model is added in ModelStore.</string>
+    <string name="capicut_video_applied">9:16 crop and exposure applied</string>
+    <string name="capicut_wav_saved">WAV saved to Music/CapiCut</string>
+    <string name="capicut_about_credit">CapiCut is built on LibreCuts (MIT). Original work by Tharun Birla.</string>
+    <string name="capicut_busy">A job is already running</string>
+    <string name="capicut_cancelled">Cancelled</string>
+    <string name="capicut_storage_full">Not enough free storage</string>
+    <string name="capicut_audio_failed">Audio treatment failed</string>
+    <string name="capicut_vad_failed">Auto cut failed</string>
+    <string name="capicut_wav_failed">WAV export failed</string>
+    <string name="capicut_unknown_job">Unknown job type</string>
+    <string name="capicut_unknown_error">Something went wrong</string>
+    <string name="capicut_transcript_ready">Transcript ready</string>
+    <string name="capicut_notifications_denied">Notifications off — return to the app to see progress.</string>
+    <string name="capicut_auto_cut_review">%1$d speech segments found. Apply cuts and remove silence gaps?</string>
+    <string name="capicut_fillers_title">Filler words</string>
+    <string name="capicut_fillers_found">Found %1$d filler words. Remove them from the timeline?</string>
+    <string name="capicut_fillers_remove">Remove</string>
+    <string name="capicut_fillers_removed">Filler cuts applied</string>
 </resources>

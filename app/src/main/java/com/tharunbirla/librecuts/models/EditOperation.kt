@@ -232,7 +232,8 @@ sealed class EditOperation : Serializable {
         val isReversed: Boolean = false,
         val isMirrored: Boolean = false,
         val maskConfig: MaskConfig = MaskConfig(),
-        val isImage: Boolean = false
+        val isImage: Boolean = false,
+        val audioOffsetMs: Long = 0L
     ) : Serializable {
         val trimmedDurationMs: Long
             get() = ((trimEndMs - trimStartMs) / speed).toLong()
@@ -411,6 +412,13 @@ sealed class EditOperation : Serializable {
     ) : EditOperation() {
         enum class BackgroundType { COLOR, IMAGE, BLUR }
     }
+
+    /** CapiCut: A/V sync offset for a clip index (0 = main). Positive delays audio. */
+    data class ClipAudioOffset(
+        val clipIndex: Int,
+        val offsetMs: Long,
+        val id: String = System.nanoTime().toString()
+    ) : EditOperation()
 }
 
 data class SubtitleCue(
@@ -486,4 +494,5 @@ val EditOperation.id: String
         is EditOperation.AddSubtitles -> id
         is EditOperation.Adjust -> id
         is EditOperation.CanvasBackground -> id
+        is EditOperation.ClipAudioOffset -> id
     }

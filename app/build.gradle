@@ -11,7 +11,8 @@ aboutLibraries {
 
 android {
     namespace 'com.tharunbirla.librecuts'
-    compileSdk 34
+    compileSdk 35
+    ndkVersion "27.0.12077973"
 
     androidResources {
         generateLocaleConfig = true
@@ -24,13 +25,26 @@ android {
     defaultConfig {
         applicationId "com.tharunbirla.librecuts"
         minSdk 26
-        targetSdk 34
+        targetSdk 35
         versionCode project.hasProperty('versionCode') ? project.property('versionCode').toInteger() : 10
-        versionName "1.0-beta7"
+        versionName "1.0-beta7-capicut"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
+        }
+        externalNativeBuild {
+            cmake {
+                cppFlags "-O3"
+                arguments "-DANDROID_STL=c++_shared"
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
         }
     }
 
@@ -60,6 +74,10 @@ android {
     packaging {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+        jniLibs {
+            pickFirsts += '**/libc++_shared.so'
+            pickFirsts += '**/libonnxruntime.so'
         }
     }
 
@@ -99,7 +117,13 @@ dependencies {
     implementation libs.androidx.constraintlayout
     implementation libs.androidx.recyclerview
     testImplementation libs.junit
+    testImplementation 'com.microsoft.onnxruntime:onnxruntime:1.20.0'
+    testImplementation 'org.mockito:mockito-core:5.14.2'
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
+    androidTestImplementation 'androidx.test:rules:1.6.1'
+    androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
     implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
+    implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.20.0'
 }

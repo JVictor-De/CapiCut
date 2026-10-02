@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="str_loop">சுழற்சி</string>
-    <string name="app_name">LibreCuts</string>
+    <string name="app_name">CapiCut</string>
     <string name="trim">நறுக்கு</string>
     <string name="split">பிரி</string>
     <string name="export">ஏற்றுமதி</string>

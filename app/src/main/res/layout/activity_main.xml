@@ -175,6 +175,32 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tvCapicutRecentHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/capicut_recent_projects"
+                android:textColor="@color/textColor"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvCapicutNoProjects"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/capicut_no_local_projects"
+                android:textColor="@color/iconSecondary"
+                android:textSize="13sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvLocalProjects"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:nestedScrollingEnabled="false" />
+
             <!-- App Tagline -->
             <TextView
                 android:layout_width="wrap_content"
@@ -637,6 +663,15 @@
                     android:text="@string/str_a_privacy_friendly_open_source"
                     android:textColor="@color/iconSecondary"
                     android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="@string/capicut_about_credit"
+                    android:textColor="@color/iconSecondary"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <!-- Support & Community Bento Card -->

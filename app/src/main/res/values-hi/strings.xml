@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="str_loop">लूप</string>
-    <string name="app_name">LibreCuts</string>
+    <string name="app_name">CapiCut</string>
     <string name="trim">ट्रिम</string>
     <string name="split">स्प्लिट</string>
     <string name="export">निर्यात करें</string>

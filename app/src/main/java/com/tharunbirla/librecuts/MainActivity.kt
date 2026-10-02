@@ -24,6 +24,9 @@ import com.tharunbirla.librecuts.databinding.ActivityMainBinding
 import com.tharunbirla.librecuts.utils.ErrorCode
 import com.tharunbirla.librecuts.utils.setBounceClickListener
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.capicut.audiointel.project.LocalProjectRepository
+import com.capicut.audiointel.ui.LocalProjectAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -34,6 +37,8 @@ import java.net.URL
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val projectRepo by lazy { LocalProjectRepository(this) }
+    private lateinit var localProjectAdapter: LocalProjectAdapter
     private val selectVideoLauncher =
         registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
             if (uri != null) {
@@ -263,8 +268,70 @@ class MainActivity : AppCompatActivity() {
             showOnboardingDialog(prefs)
         }
 
+        setupLocalProjectsList()
+
         // Handle shared/intent videos
         handleIntent(intent)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (::localProjectAdapter.isInitialized) {
+            refreshLocalProjects()
+        }
+    }
+
+    private fun setupLocalProjectsList() {
+        localProjectAdapter = LocalProjectAdapter(
+            emptyList(),
+            onOpen = { meta ->
+                val fileUri = projectRepo.projectFileUri(meta.id) ?: return@LocalProjectAdapter
+                val intent = Intent(this, ProjectImportActivity::class.java).apply {
+                    putExtra("PROJECT_URI", fileUri)
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+                }
+                startActivity(intent)
+            },
+            onRename = { meta ->
+                val input = android.widget.EditText(this).apply {
+                    setText(meta.displayName)
+                    setSelection(meta.displayName.length)
+                }
+                MaterialAlertDialogBuilder(this)
+                    .setTitle(R.string.capicut_rename_title)
+                    .setView(input)
+                    .setPositiveButton(R.string.str_save) { _, _ ->
+                        val name = input.text.toString().trim()
+                        if (name.isNotEmpty()) {
+                            projectRepo.rename(meta.id, name)
+                            refreshLocalProjects()
+                        }
+                    }
+                    .setNegativeButton(R.string.cancel, null)
+                    .show()
+            },
+            onDelete = { meta ->
+                MaterialAlertDialogBuilder(this)
+                    .setTitle(R.string.capicut_delete)
+                    .setMessage(meta.displayName)
+                    .setPositiveButton(R.string.delete) { _, _ ->
+                        projectRepo.delete(meta.id)
+                        refreshLocalProjects()
+                    }
+                    .setNegativeButton(R.string.cancel, null)
+                    .show()
+            }
+        )
+        binding.rvLocalProjects.layoutManager = LinearLayoutManager(this)
+        binding.rvLocalProjects.adapter = localProjectAdapter
+        refreshLocalProjects()
+    }
+
+    private fun refreshLocalProjects() {
+        val items = projectRepo.list()
+        localProjectAdapter.submit(items)
+        binding.tvCapicutNoProjects.visibility = if (items.isEmpty()) View.VISIBLE else View.GONE
+        binding.rvLocalProjects.visibility = if (items.isEmpty()) View.GONE else View.VISIBLE
     }
 
     private fun updateExportFolderUI(uri: Uri?, textView: TextView, defaultStringResId: Int) {
